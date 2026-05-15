@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ergünbaş Group</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{    margin:0;    font-family:'Inter', sans-serif;    background:#fff;    color:#111;}
+.logo img{height:65px;}
+
+/* LANGUAGE SCREEN */
+
+.language-screen{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+}
+
+.language-box{
+    max-width:700px;
+    width:100%;
+}
+
+.language-box h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.language-box p{
+    color:#666;
+    margin-bottom:40px;
+}
+
+.language-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.language-card{
+    border:1px solid #eee;
+    border-radius:18px;
+    padding:35px 20px;
+    cursor:pointer;
+    background:#fafafa;
+    font-size:20px;
+    font-weight:600;
+    transition:0.25s;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.language-card:hover{
+    background:#111;
+    color:white;
+    transform:translateY(-5px);
+}
+
+.flag-img{
+    width:54px;
+    height:54px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:12px;
+    border:2px solid #eee;
+}
+
+/* MAIN PAGE */
+
+#mainPage{
+    display:none;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    border-bottom:1px solid #eee;
+}
+
+.logo-text{
+    font-weight:700;
+    font-size:18px;
+}
+
+.change-lang{
+    border:none;
+    background:#f3f3f3;
+    padding:10px 16px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero-text{
+    text-align:center;
+    max-width:900px;
+    margin:60px auto 20px auto;
+    padding:0 10%;
+}
+
+.hero-text h1{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.hero-text p{
+    color:#555;
+    line-height:1.7;
+}
+
+/* MAIN */
+
+.main{
+    padding:20px 10%;
+    max-width:1000px;
+    margin:auto;
+}
+
+/* PRODUCT BLOCK */
+
+.center-block{
+    margin-top:30px;
+    text-align:center;
+    padding:50px;
+    border-radius:18px;
+    border:1px solid #eee;
+    background:#fafafa;
+    transition:0.2s;
+}
+
+.center-block:hover{
+    transform:translateY(-5px);
+}
+
+.product-logo{
+    height:55px;
+    margin-bottom:15px;
+}
+
+/* BUTTON */
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:14px 24px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+}
+
+/* WHATSAPP */
+
+.whatsapp-section{
+    margin-top:60px;
+    text-align:center;
+    padding:55px;
+    border-radius:18px;
+    background:#f5fff8;
+    border:1px solid #d9f7e3;
+}
+
+.whatsapp-btn{
+    display:inline-block;
+    margin-top:15px;
+    background:#25D366;
+    color:white;
+    padding:18px 30px;
+    border-radius:50px;
+    font-size:18px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.2s;
+}
+
+.whatsapp-btn:hover{
+    transform:scale(1.05);
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:60px;
+    padding:20px;
+    text-align:center;
+    border-top:1px solid #eee;
+    color:#777;
+}
+
+@media(max-width:700px){
+
+    .language-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-text h1{
+        font-size:28px;
+    }
+
+    .center-block{
+        padding:35px 20px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="languageScreen" class="language-screen">
+
+    <div class="language-box">
+
+<div class="logo">
+<img src="assets/logo.png">
+</div>
+
+        <p>Please select your language</p>
+
+        <div class="language-grid">
+
+            <div class="language-card" onclick="openSite('tr')">
+                <img class="flag-img" src="https://flagcdn.com/w80/tr.png" alt="Türkçe">
+                <div>Türkçe</div>
+            </div>
+
+            <div class="language-card" onclick="openSite('fr')">
+                <img class="flag-img" src="https://flagcdn.com/w80/fr.png" alt="Français">
+                <div>Français</div>
+            </div>
+
+            <div class="language-card" onclick="openSite('en')">
+                <img class="flag-img" src="https://flagcdn.com/w80/gb.png" alt="English">
+                <div>English</div>
+            </div>
+
+            <div class="language-card" onclick="openSite('ar')">
+                <img class="flag-img" src="https://flagcdn.com/w80/dz.png" alt="DZ">
+                <div>DZ</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="mainPage">
+
+<header>
+
+<div class="logo">
+<img src="assets/logo.png">
+</div>
+
+    <button class="change-lang" onclick="backToLanguage()">
+        🌍 Language
+    </button>
+
+</header>
+
+<div class="hero-text">
+
+    <h1 id="title"></h1>
+
+    <p id="desc"></p>
+
+</div>
+
+<div class="main">
+
+    <div class="center-block">
+        <img class="product-logo"
+        src="assets/erg-pipe-logo.png"
+        onerror="this.style.display='none'">
+        <p id="erdoor"></p>
+	<a href="pdf/erdoor.pdf" class="btn" target="_blank" id="download1"></a>
+
+    </div>
+
+    <div class="whatsapp-section">
+        <h2 id="contactTitle"></h2>
+        <a class="whatsapp-btn"
+        target="_blank"
+        href="https://api.whatsapp.com/send?phone=213560585761">
+            💬 <span id="waText"></span>
+        </a>
+    </div>
+
+</div>
+
+<footer>
+© 2026 Ergünbaş Group
+</footer>
+
+</div>
+
+<script>
+
+const texts = {
+
+fr:{
+title:"Merci de votre visite à SIPSA FILAHA 2026",
+desc:"Nous vous remercions sincèrement de votre visite sur notre stand. Vous pouvez accéder à nos catalogues et nous contacter ci-dessous.",
+erdoor:"",
+download:"Télécharger le catalogue",
+whatsapp:"Contacter via WhatsApp",
+contact:"Nos représentants"
+},
+
+tr:{
+title:"SIPSA FILAHA 2026 Fuarında Bizi Ziyaret Ettiğiniz İçin Teşekkür Ederiz",
+desc:"Standımızı ziyaret ettiğiniz için teşekkür ederiz. Kataloglarımıza ve bize aşağıdan ulaşabilirsiniz.",
+erdoor:"",
+download:"Kataloğu İndir",
+whatsapp:"WhatsApp ile İletişime Geç",
+contact:"Müşteri Temsilcilerimiz"
+},
+
+en:{
+title:"Thank You for Visiting Us at SIPSA FILAHA 2026",
+desc:"We appreciate your visit. You can access catalogs and contact us below.",
+erdoor:"",
+download:"Download Catalog",
+whatsapp:"Contact via WhatsApp",
+contact:"Our Representatives"
+},
+
+ar:{
+title:"شكراً لزيارتكم في SIPSA FILAHA 2026",
+desc:"نشكركم على زيارة جناحنا. يمكنكم الوصول إلى الكتالوجات والتواصل معنا أدناه.",
+erdoor:"",
+download:"تحميل الكتالوج",
+whatsapp:"التواصل عبر واتساب",
+contact:"ممثلو خدمة العملاء"
+}
+
+};
+
+function openSite(lang){
+    setLang(lang);
+    document.getElementById("languageScreen").style.display = "none";
+    document.getElementById("mainPage").style.display = "block";
+}
+
+function backToLanguage(){
+    document.getElementById("mainPage").style.display = "none";
+    document.getElementById("languageScreen").style.display = "flex";
+}
+
+function setLang(lang){
+    const t = texts[lang];
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+    document.getElementById("title").innerText = t.title;
+    document.getElementById("desc").innerText = t.desc;
+    document.getElementById("erdoor").innerText = t.erdoor;
+    document.getElementById("download1").innerText = t.download;
+    document.getElementById("contactTitle").innerText = t.contact;
+    document.getElementById("waText").innerText = t.whatsapp;
+}
+
+</script>
+
+</body>
+</html>
