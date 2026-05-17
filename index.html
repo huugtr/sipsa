@@ -8,127 +8,199 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-body{    margin:0;    font-family:'Inter', sans-serif;    background:#fff;    color:#111;}
-.logo img{height:65px;}
-
-/* LANGUAGE SCREEN */
-
-.language-screen{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:30px;
+body{
+    margin:0;
+    font-family:'Inter', sans-serif;
+    background:#fff;
+    color:#111;
 }
 
-.language-box{
-    max-width:700px;
-    width:100%;
+.logo img{
+    height:65px;
 }
 
-.language-box h1{
-    font-size:36px;
-    margin-bottom:10px;
-}
-
-.language-box p{
-    color:#666;
-    margin-bottom:40px;
-}
-
-.language-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
-.language-card{
-    border:1px solid #eee;
-    border-radius:18px;
-    padding:35px 20px;
-    cursor:pointer;
-    background:#fafafa;
-    font-size:20px;
-    font-weight:600;
-    transition:0.25s;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-}
-
-.language-card:hover{
-    background:#111;
-    color:white;
-    transform:translateY(-5px);
-}
-
-.flag-img{
-    width:54px;
-    height:54px;
-    object-fit:cover;
-    border-radius:50%;
-    margin-bottom:12px;
-    border:2px solid #eee;
-}
-
-/* MAIN PAGE */
-
-#mainPage{
-    display:none;
+.logo img[src="assets/logo.png"]{
+    min-width:160px;
 }
 
 header{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:20px;
     padding:20px 10%;
     border-bottom:1px solid #eee;
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:20;
 }
 
-.logo-text{
-    font-weight:700;
-    font-size:18px;
+.language-bar{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
-.change-lang{
-    border:none;
-    background:#f3f3f3;
-    padding:10px 16px;
+.lang-btn{
+    border:1px solid #e5e5e5;
+    background:#fff;
     border-radius:30px;
+    padding:8px 14px;
     cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    font-weight:600;
+    transition:0.2s;
 }
 
-/* HERO */
+.lang-btn:hover,
+.lang-btn.active{
+    background:#111;
+    color:#fff;
+    border-color:#111;
+}
 
-.hero-text{
+.lang-btn img{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.hero-intro{
+    position:relative;
     text-align:center;
-    max-width:900px;
-    margin:60px auto 20px auto;
-    padding:0 10%;
+    padding:70px 10% 25px;
+    max-width:1100px;
+    margin:0 auto;
 }
 
-.hero-text h1{
-    font-size:34px;
-    margin-bottom:15px;
+.hero-intro h1{
+    font-size:52px;
+    line-height:1.1;
+    margin:0 0 18px;
+    font-weight:700;
+    color:#111;
 }
 
-.hero-text p{
-    color:#555;
-    line-height:1.7;
+.hero-intro p{
+    font-size:18px;
+    line-height:1.8;
+    color:#666;
+    margin:0 auto;
+    max-width:850px;
 }
 
-/* MAIN */
+.hero-gallery{
+    padding:35px 10% 10px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-auto-rows:240px;
+    gap:18px;
+}
+
+.video-row{
+    padding:10px 10% 0;
+}
+
+.video-banner{
+    position:relative;
+    overflow:hidden;
+    border-radius:34px;
+    height:560px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+    background:#000;
+}
+
+.video-banner video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.video-banner .gallery-overlay{
+    padding:clamp(24px, 5vw, 70px);
+}
+
+.video-banner .gallery-overlay h2{
+    font-size:clamp(28px, 4vw, 58px);
+    max-width:1200px;
+    line-height:1.18;
+    font-weight:800;
+    letter-spacing:-0.03em;
+    text-shadow:0 4px 16px rgba(0,0,0,0.5);
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:28px;
+    background:#e8e8e8;
+    box-shadow:0 12px 30px rgba(0,0,0,0.10);
+}
+
+.gallery-item img,
+.gallery-item video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform 0.55s ease, filter 0.55s ease;
+}
+
+.gallery-video{
+    object-fit:cover;
+    background:#000;
+}
+
+.gallery-item:hover img,
+.gallery-item:hover video{
+    transform:scale(1.07);
+    filter:brightness(0.9);
+}
+
+.gallery-item.large,
+.gallery-item.tall{
+    grid-column:span 1;
+    grid-row:span 1;
+}
+
+.gallery-item.wide{
+    grid-column:span 2;
+    grid-row:span 1;
+}
+
+.gallery-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.08) 65%);
+    display:flex;
+    align-items:flex-end;
+    padding:clamp(18px, 2vw, 28px);
+}
+
+.gallery-overlay h2{
+    margin:0;
+    max-width:680px;
+    color:#fff;
+    font-size:clamp(20px, 2vw, 36px);
+    line-height:1.22;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    text-shadow:0 3px 12px rgba(0,0,0,0.45);
+}
 
 .main{
     padding:20px 10%;
     max-width:1000px;
     margin:auto;
 }
-
-/* PRODUCT BLOCK */
 
 .center-block{
     margin-top:30px;
@@ -149,8 +221,6 @@ header{
     margin-bottom:15px;
 }
 
-/* BUTTON */
-
 .btn{
     display:inline-block;
     margin-top:15px;
@@ -161,8 +231,6 @@ header{
     border-radius:10px;
     font-weight:600;
 }
-
-/* WHATSAPP */
 
 .whatsapp-section{
     margin-top:60px;
@@ -190,8 +258,6 @@ header{
     transform:scale(1.05);
 }
 
-/* FOOTER */
-
 footer{
     margin-top:60px;
     padding:20px;
@@ -200,180 +266,328 @@ footer{
     color:#777;
 }
 
-@media(max-width:700px){
-
-    .language-grid{
-        grid-template-columns:1fr;
+@media(max-width:900px){
+    .hero-gallery{
+        grid-template-columns:1fr 1fr;
+        grid-auto-rows:210px;
+        padding:28px 6% 10px;
     }
 
-    .hero-text h1{
+    .video-row{
+        padding:10px 6% 0;
+    }
+
+    .video-banner{
+        height:420px;
+    }
+
+    .video-banner .gallery-overlay h2{
+        font-size:32px;
+    }
+}
+
+@media(max-width:700px){
+    header{
+        padding:18px 6%;
+        align-items:flex-start;
+    }
+
+    .logo img{
+        height:52px;
+    }
+
+    .language-bar{
+        gap:6px;
+    }
+
+    .lang-btn{
+        padding:7px 10px;
+        font-size:12px;
+    }
+
+    .hero-intro{
+        padding:45px 6% 10px;
+    }
+
+    .hero-intro h1{
+        font-size:34px;
+    }
+
+    .hero-intro p{
+        font-size:15px;
+    }
+
+    .hero-gallery{
+        grid-template-columns:1fr;
+        grid-auto-rows:220px;
+        padding:25px 6% 10px;
+    }
+
+    .video-row{
+        padding:10px 6% 0;
+    }
+
+    .video-banner{
+        height:340px;
+        border-radius:24px;
+    }
+
+    .video-banner .gallery-overlay{
+        padding:24px;
+    }
+
+    .video-banner .gallery-overlay h2{
         font-size:28px;
     }
 
-    .center-block{
-        padding:35px 20px;
+    .gallery-overlay h2{
+        font-size:26px;
     }
 
+    .center-block,
+    .whatsapp-section{
+        padding:35px 20px;
+    }
 }
-
 </style>
 </head>
 
 <body>
 
-<div id="languageScreen" class="language-screen">
-
-    <div class="language-box">
-
-<div class="logo">
-<img src="assets/logo.png">
-</div>
-
-        <p>Please select your language</p>
-
-        <div class="language-grid">
-
-            <div class="language-card" onclick="openSite('tr')">
-                <img class="flag-img" src="https://flagcdn.com/w80/tr.png" alt="Türkçe">
-                <div>Türkçe</div>
-            </div>
-
-            <div class="language-card" onclick="openSite('fr')">
-                <img class="flag-img" src="https://flagcdn.com/w80/fr.png" alt="Français">
-                <div>Français</div>
-            </div>
-
-            <div class="language-card" onclick="openSite('en')">
-                <img class="flag-img" src="https://flagcdn.com/w80/gb.png" alt="English">
-                <div>English</div>
-            </div>
-
-            <div class="language-card" onclick="openSite('ar')">
-                <img class="flag-img" src="https://flagcdn.com/w80/dz.png" alt="DZ">
-                <div>DZ</div>
-            </div>
-
+<div id="mainPage">
+    <header>
+        <div class="logo">
+            <img src="assets/logo.png" alt="Erg Pipe" onerror="this.style.display='none'">
         </div>
 
+        <div class="language-bar" aria-label="Language selection">
+            <button type="button" class="lang-btn" data-lang="tr" onclick="setLang('tr')">
+                <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe">
+                TR
+            </button>
+
+            <button type="button" class="lang-btn" data-lang="fr" onclick="setLang('fr')">
+                <img src="https://flagcdn.com/w40/fr.png" alt="Français">
+                FR
+            </button>
+
+            <button type="button" class="lang-btn" data-lang="en" onclick="setLang('en')">
+                <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                EN
+            </button>
+
+            <button type="button" class="lang-btn" data-lang="ar" onclick="setLang('ar')">
+                <img src="https://flagcdn.com/w40/dz.png" alt="DZ">
+                DZ
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-intro">
+        <h1 id="title"></h1>
+        <p id="desc"></p>
+    </section>
+
+    <section class="hero-gallery" aria-label="Top sprinkler irrigation gallery">
+        <div class="gallery-item large">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop" alt="Yağmurlama sulama yapılan tarla">
+            <div class="gallery-overlay">
+                <h2 id="slogan1"></h2>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop" alt="Tarım alanında sulama sistemi">
+            <div class="gallery-overlay">
+                <h2 id="slogan2"></h2>
+            </div>
+        </div>
+
+        <div class="gallery-item tall">
+            <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop" alt="Bitki ve su sistemi">
+            <div class="gallery-overlay">
+                <h2 id="slogan3"></h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-row">
+        <div class="video-banner">
+            <video autoplay muted loop playsinline webkit-playsinline preload="auto" class="gallery-video">
+                <source src="https://cdn.pixabay.com/video/2021/08/26/86247-593964814_large.mp4" type="video/mp4">
+            </video>
+            <div class="gallery-overlay">
+                <h2 id="videoSlogan"></h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero-gallery" aria-label="Bottom sprinkler irrigation gallery">
+        <div class="gallery-item wide">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop" alt="Geniş tarım arazisi sulama görünümü">
+            <div class="gallery-overlay">
+                <h2 id="slogan4"></h2>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1600&auto=format&fit=crop" alt="Yeşil tarım alanı">
+            <div class="gallery-overlay">
+                <h2 id="slogan5"></h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="main">
+        <div class="center-block">
+            <img class="product-logo" src="assets/erg-pipe-logo.png" alt="Product Logo" onerror="this.style.display='none'">
+            <p id="ergpipe"></p>
+            <a href="pdf/ergpipe.pdf" class="btn" target="_blank" id="download1"></a>
+        </div>
+
+        <div class="whatsapp-section">
+            <h2 id="contactTitle"></h2>
+            <a class="whatsapp-btn" target="_blank" href="https://api.whatsapp.com/send?phone=213560585761">
+                💬 <span id="waText"></span>
+            </a>
+        </div>
     </div>
 
-</div>
-
-<div id="mainPage">
-
-<header>
-
-<div class="logo">
-<img src="assets/logo.png">
-</div>
-
-    <button class="change-lang" onclick="backToLanguage()">
-        🌍 Language
-    </button>
-
-</header>
-
-<div class="hero-text">
-
-    <h1 id="title"></h1>
-
-    <p id="desc"></p>
-
-</div>
-
-<div class="main">
-
-    <div class="center-block">
-        <img class="product-logo"
-        src="assets/erg-pipe-logo.png"
-        onerror="this.style.display='none'">
-        <p id="erdoor"></p>
-	<a href="pdf/erdoor.pdf" class="btn" target="_blank" id="download1"></a>
-
-    </div>
-
-    <div class="whatsapp-section">
-        <h2 id="contactTitle"></h2>
-        <a class="whatsapp-btn"
-        target="_blank"
-        href="https://api.whatsapp.com/send?phone=213560585761">
-            💬 <span id="waText"></span>
-        </a>
-    </div>
-
-</div>
-
-<footer>
-© 2026 Ergünbaş Group
-</footer>
-
+    <footer>
+        © 2026 Ergünbaş Group
+    </footer>
 </div>
 
 <script>
-
-const texts = {
-
-fr:{
-title:"Merci de votre visite à SIPSA FILAHA 2026",
-desc:"Nous vous remercions sincèrement de votre visite sur notre stand. Vous pouvez accéder à nos catalogues et nous contacter ci-dessous.",
-erdoor:"",
-download:"Télécharger le catalogue",
-whatsapp:"Contacter via WhatsApp",
-contact:"Nos représentants"
-},
-
-tr:{
-title:"SIPSA FILAHA 2026 Fuarında Bizi Ziyaret Ettiğiniz İçin Teşekkür Ederiz",
-desc:"Standımızı ziyaret ettiğiniz için teşekkür ederiz. Kataloglarımıza ve bize aşağıdan ulaşabilirsiniz.",
-erdoor:"",
-download:"Kataloğu İndir",
-whatsapp:"WhatsApp ile İletişime Geç",
-contact:"Müşteri Temsilcilerimiz"
-},
-
-en:{
-title:"Thank You for Visiting Us at SIPSA FILAHA 2026",
-desc:"We appreciate your visit. You can access catalogs and contact us below.",
-erdoor:"",
-download:"Download Catalog",
-whatsapp:"Contact via WhatsApp",
-contact:"Our Representatives"
-},
-
-ar:{
-title:"شكراً لزيارتكم في SIPSA FILAHA 2026",
-desc:"نشكركم على زيارة جناحنا. يمكنكم الوصول إلى الكتالوجات والتواصل معنا أدناه.",
-erdoor:"",
-download:"تحميل الكتالوج",
-whatsapp:"التواصل عبر واتساب",
-contact:"ممثلو خدمة العملاء"
-}
-
+var texts = {
+    fr: {
+        title: "Merci de votre visite à SIPSA FILAHA 2026",
+        desc: "Nous vous remercions sincèrement de votre visite sur notre stand. Vous pouvez accéder à nos catalogues et nous contacter ci-dessous.",
+        ergpipe: "Systèmes de tuyaux d'irrigation et solutions de distribution d'eau pour les projets agricoles modernes.",
+        download: "Télécharger le catalogue",
+        whatsapp: "Contacter via WhatsApp",
+        contact: "Nos représentants",
+        slogan1: "Leader du secteur",
+        slogan2: "Tuyaux et accessoires durables pour une performance maximale",
+        slogan3: "Nous produisons les meilleurs tuyaux d'irrigation en Algérie",
+        slogan4: "La qualité dans chaque goutte, la confiance à chaque saison",
+        slogan5: "Nous produisons pour une efficacité agricole maximale",
+        videoSlogan: "ERG PIPE vous attend avec des tuyaux et accessoires d'irrigation professionnels offrant un débit continu et une durabilité maximale."
+    },
+    tr: {
+        title: "SIPSA FILAHA 2026 Fuarında Bizi Ziyaret Ettiğiniz İçin Teşekkür Ederiz",
+        desc: "Standımızı ziyaret ettiğiniz için teşekkür ederiz. Kataloglarımıza ve bize aşağıdan ulaşabilirsiniz.",
+        ergpipe: "Modern tarım projeleri için sulama boruları ve su dağıtım sistemleri.",
+        download: "Kataloğu İndir",
+        whatsapp: "WhatsApp ile İletişime Geç",
+        contact: "Müşteri Temsilcilerimiz",
+        slogan1: "Sektöründe Lider Üretici",
+        slogan2: "Maksimum Performans İçin Dayanıklı Boru ve Aksesuarlar",
+        slogan3: "Cezayir'in En Kaliteli Sulama Borularını Üretiyoruz",
+        slogan4: "Her Damlada Kalite, Her Sezonda Güven",
+        slogan5: "Tarımda En Yüksek Verimlilik İçin Üretiyoruz",
+        videoSlogan: "Kesintisiz Akış, Maksimum Dayanıklılık sağlayan Profesyonel Sulama Boruları ve Aksesuarları için ERG PIPE sizleri bekliyor."
+    },
+    en: {
+        title: "Thank You for Visiting Us at SIPSA FILAHA 2026",
+        desc: "We appreciate your visit. You can access our catalogs and contact us below.",
+        ergpipe: "Irrigation pipes and water distribution systems for modern agriculture projects.",
+        download: "Download Catalog",
+        whatsapp: "Contact via WhatsApp",
+        contact: "Our Representatives",
+        slogan1: "Leading Manufacturer in the Industry",
+        slogan2: "Durable Pipes and Accessories for Maximum Performance",
+        slogan3: "We Produce Algeria's Highest Quality Irrigation Pipes",
+        slogan4: "Quality in Every Drop, Trust in Every Season",
+        slogan5: "We Produce for Maximum Agricultural Efficiency",
+        videoSlogan: "ERG PIPE welcomes you with professional irrigation pipes and accessories that provide continuous flow and maximum durability."
+    },
+    ar: {
+        title: "شكراً لزيارتكم في SIPSA FILAHA 2026",
+        desc: "نشكركم على زيارة جناحنا. يمكنكم الوصول إلى الكتالوجات والتواصل معنا أدناه.",
+        ergpipe: "أنابيب الري وأنظمة توزيع المياه للمشاريع الزراعية الحديثة.",
+        download: "تحميل الكتالوج",
+        whatsapp: "التواصل عبر واتساب",
+        contact: "ممثلو خدمة العملاء",
+        slogan1: "الشركة الرائدة في القطاع",
+        slogan2: "أنابيب وإكسسوارات متينة لأقصى أداء",
+        slogan3: "نحن ننتج أفضل أنابيب الري في الجزائر",
+        slogan4: "الجودة في كل قطرة والثقة في كل موسم",
+        slogan5: "ننتج لتحقيق أعلى كفاءة زراعية",
+        videoSlogan: "ERG PIPE بانتظاركم مع أنابيب وإكسسوارات ري احترافية توفر تدفقاً مستمراً وأقصى درجات المتانة."
+    }
 };
 
-function openSite(lang){
-    setLang(lang);
-    document.getElementById("languageScreen").style.display = "none";
-    document.getElementById("mainPage").style.display = "block";
+function setText(id, value){
+    var element = document.getElementById(id);
+    if(element){
+        element.innerText = value || "";
+    }
 }
 
-function backToLanguage(){
-    document.getElementById("mainPage").style.display = "none";
-    document.getElementById("languageScreen").style.display = "flex";
+function setActiveLanguage(lang){
+    var buttons = document.querySelectorAll(".lang-btn");
+    for(var i = 0; i < buttons.length; i++){
+        buttons[i].classList.toggle("active", buttons[i].getAttribute("data-lang") === lang);
+    }
 }
 
 function setLang(lang){
-    const t = texts[lang];
-    document.documentElement.lang = lang;
-    document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
-    document.getElementById("title").innerText = t.title;
-    document.getElementById("desc").innerText = t.desc;
-    document.getElementById("erdoor").innerText = t.erdoor;
-    document.getElementById("download1").innerText = t.download;
-    document.getElementById("contactTitle").innerText = t.contact;
-    document.getElementById("waText").innerText = t.whatsapp;
+    var selectedLang = texts[lang] ? lang : "fr";
+    var t = texts[selectedLang];
+
+    document.documentElement.lang = selectedLang;
+    document.documentElement.dir = selectedLang === "ar" ? "rtl" : "ltr";
+
+    setText("title", t.title);
+    setText("desc", t.desc);
+    setText("ergpipe", t.ergpipe);
+    setText("download1", t.download);
+    setText("contactTitle", t.contact);
+    setText("waText", t.whatsapp);
+    setText("slogan1", t.slogan1);
+    setText("slogan2", t.slogan2);
+    setText("slogan3", t.slogan3);
+    setText("slogan4", t.slogan4);
+    setText("slogan5", t.slogan5);
+    setText("videoSlogan", t.videoSlogan);
+    setActiveLanguage(selectedLang);
 }
 
+function runTests(){
+    console.assert(Boolean(document.getElementById("mainPage")), "mainPage should exist");
+    console.assert(Boolean(document.querySelector(".language-bar")), "language bar should exist");
+    console.assert(document.querySelectorAll(".lang-btn").length === 4, "four language buttons should exist");
+    console.assert(typeof setLang === "function", "setLang function should exist");
+    console.assert(typeof window.backToLanguage === "undefined", "backToLanguage should not be required anymore");
+    console.assert(Boolean(document.querySelector(".hero-gallery")), "hero gallery should exist");
+    console.assert(document.querySelectorAll(".gallery-item").length === 5, "five gallery images should exist");
+    console.assert(document.querySelectorAll("section.hero-gallery")[0].querySelectorAll(".gallery-item").length === 3, "top gallery should contain three images");
+    console.assert(document.querySelectorAll("section.hero-gallery")[1].querySelectorAll(".gallery-item").length === 2, "bottom gallery should contain two images");
+    console.assert(document.querySelectorAll(".gallery-item.wide").length === 1, "one wide gallery image should exist");
+    console.assert(document.querySelectorAll(".gallery-item.large").length === 1, "one large gallery image should exist");
+    console.assert(document.querySelectorAll(".video-banner").length === 1, "one large video banner should exist");
+    console.assert(document.querySelectorAll(".gallery-item.tall").length === 1, "one tall gallery image should exist");
+    console.assert(Boolean(document.getElementById("ergpipe")), "ergpipe content should exist");
+    console.assert(Boolean(document.getElementById("download1")), "download1 button should exist");
+    console.assert(document.getElementById("decker") === null, "decker element should be removed");
+    console.assert(document.getElementById("download2") === null, "download2 button should be removed");
+    console.assert(document.querySelector(".hero-slider") === null, "old hero slider should be removed");
+    console.assert(document.querySelectorAll("video").length === 1, "one gallery video should exist");
+
+    var langs = Object.keys(texts);
+    for(var i = 0; i < langs.length; i++){
+        var lang = langs[i];
+        setLang(lang);
+        console.assert(document.getElementById("title").innerText.length > 0, lang + " title should be filled");
+        console.assert(document.getElementById("download1").innerText.length > 0, lang + " download text should be filled");
+        console.assert(document.querySelector(".lang-btn[data-lang='" + lang + "']").classList.contains("active"), lang + " button should be active");
+        console.assert(document.getElementById("videoSlogan").innerText.length > 0, lang + " video slogan should be filled");
+    }
+}
+
+setLang("fr");
+runTests();
 </script>
 
 </body>
