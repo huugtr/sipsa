@@ -357,7 +357,7 @@ footer{
 <div id="mainPage">
     <header>
         <div class="logo">
-            <img src="assets/logo.png" alt="Erg Pipe" onerror="this.style.display='none'">
+            <img src="assets/logo.png" alt="Ergünbaş Group Logo" onerror="this.style.display='none'">
         </div>
 
         <div class="language-bar" aria-label="Language selection">
@@ -441,8 +441,8 @@ footer{
     <div class="main">
         <div class="center-block">
             <img class="product-logo" src="assets/erg-pipe-logo.png" alt="Product Logo" onerror="this.style.display='none'">
-            <p id="ergpipe"></p>
-            <a href="pdf/ergpipe.pdf" class="btn" target="_blank" id="download1"></a>
+            <p id="erdoor"></p>
+            <a href="pdf/erdoor.pdf" class="btn" target="_blank" id="download1"></a>
         </div>
 
         <div class="whatsapp-section">
@@ -463,7 +463,7 @@ var texts = {
     fr: {
         title: "Merci de votre visite à SIPSA FILAHA 2026",
         desc: "Nous vous remercions sincèrement de votre visite sur notre stand. Vous pouvez accéder à nos catalogues et nous contacter ci-dessous.",
-        ergpipe: "Systèmes de tuyaux d'irrigation et solutions de distribution d'eau pour les projets agricoles modernes.",
+        erdoor: "Systèmes de tuyaux d'irrigation et solutions de distribution d'eau pour les projets agricoles modernes.",
         download: "Télécharger le catalogue",
         whatsapp: "Contacter via WhatsApp",
         contact: "Nos représentants",
@@ -477,7 +477,7 @@ var texts = {
     tr: {
         title: "SIPSA FILAHA 2026 Fuarında Bizi Ziyaret Ettiğiniz İçin Teşekkür Ederiz",
         desc: "Standımızı ziyaret ettiğiniz için teşekkür ederiz. Kataloglarımıza ve bize aşağıdan ulaşabilirsiniz.",
-        ergpipe: "Modern tarım projeleri için sulama boruları ve su dağıtım sistemleri.",
+        erdoor: "Modern tarım projeleri için sulama boruları ve su dağıtım sistemleri.",
         download: "Kataloğu İndir",
         whatsapp: "WhatsApp ile İletişime Geç",
         contact: "Müşteri Temsilcilerimiz",
@@ -491,7 +491,7 @@ var texts = {
     en: {
         title: "Thank You for Visiting Us at SIPSA FILAHA 2026",
         desc: "We appreciate your visit. You can access our catalogs and contact us below.",
-        ergpipe: "Irrigation pipes and water distribution systems for modern agriculture projects.",
+        erdoor: "Irrigation pipes and water distribution systems for modern agriculture projects.",
         download: "Download Catalog",
         whatsapp: "Contact via WhatsApp",
         contact: "Our Representatives",
@@ -505,7 +505,7 @@ var texts = {
     ar: {
         title: "شكراً لزيارتكم في SIPSA FILAHA 2026",
         desc: "نشكركم على زيارة جناحنا. يمكنكم الوصول إلى الكتالوجات والتواصل معنا أدناه.",
-        ergpipe: "أنابيب الري وأنظمة توزيع المياه للمشاريع الزراعية الحديثة.",
+        erdoor: "أنابيب الري وأنظمة توزيع المياه للمشاريع الزراعية الحديثة.",
         download: "تحميل الكتالوج",
         whatsapp: "التواصل عبر واتساب",
         contact: "ممثلو خدمة العملاء",
@@ -541,7 +541,7 @@ function setLang(lang){
 
     setText("title", t.title);
     setText("desc", t.desc);
-    setText("ergpipe", t.ergpipe);
+    setText("erdoor", t.erdoor);
     setText("download1", t.download);
     setText("contactTitle", t.contact);
     setText("waText", t.whatsapp);
@@ -568,7 +568,7 @@ function runTests(){
     console.assert(document.querySelectorAll(".gallery-item.large").length === 1, "one large gallery image should exist");
     console.assert(document.querySelectorAll(".video-banner").length === 1, "one large video banner should exist");
     console.assert(document.querySelectorAll(".gallery-item.tall").length === 1, "one tall gallery image should exist");
-    console.assert(Boolean(document.getElementById("ergpipe")), "ergpipe content should exist");
+    console.assert(Boolean(document.getElementById("erdoor")), "erdoor content should exist");
     console.assert(Boolean(document.getElementById("download1")), "download1 button should exist");
     console.assert(document.getElementById("decker") === null, "decker element should be removed");
     console.assert(document.getElementById("download2") === null, "download2 button should be removed");
